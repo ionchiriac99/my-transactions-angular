@@ -9,6 +9,7 @@ import {SettingThemeComponent} from 'src/app/shared/setting-theme/setting-theme.
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormFieldErrorModule} from 'src/app/shared/form-field-error/form-field-error.module';
 import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
 	{
@@ -28,7 +29,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes), CommonModule, ReactiveFormsModule, FormFieldErrorModule, MatIconModule],
+	imports: [
+		RouterModule.forChild(routes),
+		CommonModule,
+		HttpClientModule,
+		ReactiveFormsModule,
+		FormFieldErrorModule,
+		MatIconModule,
+	],
 	exports: [SigninComponent],
 	declarations: [SigninComponent, LoginFormComponent, RegisterFormComponent, SettingThemeComponent],
 	providers: [],

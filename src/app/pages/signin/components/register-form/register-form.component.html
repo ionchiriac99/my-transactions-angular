@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="register()">
     <h1>Signin</h1>
     <p>Just some details to get you in!</p>
     <input type="text" formControlName="username" placeholder="Username">
@@ -18,6 +18,9 @@
     </form-field-error>
     <form-field-error *ngIf="form.get('username')?.hasError('required') && form.get('username')?.dirty">
         <p>Username is <strong>required</strong></p>
+    </form-field-error>
+    <form-field-error *ngIf="form.get('username')?.hasError('already_exists')">
+        <p>Username already exists</p>
     </form-field-error>
 
     <input type="password" formControlName="password" placeholder="Password">

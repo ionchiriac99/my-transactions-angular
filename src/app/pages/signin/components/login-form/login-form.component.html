@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="login()">
     <h1>Signup</h1>
     <p>Glad you're back!</p>
     <input type="text" formControlName="username" placeholder="Username">
@@ -19,6 +19,9 @@
     <form-field-error *ngIf="form.get('username')?.hasError('required') && form.get('username')?.dirty">
         <p>Username is <strong>required</strong></p>
     </form-field-error>
+    <form-field-error *ngIf="form.get('username')?.hasError('incorrect_username') && form.get('username')?.dirty">
+        <p>Incorrect username</p>
+    </form-field-error>
 
     <input type="password" formControlName="password" placeholder="Password">
     <form-field-error *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.dirty">
@@ -37,6 +40,9 @@
     </form-field-error>
     <form-field-error *ngIf="form.get('password')?.hasError('required') && form.get('password')?.dirty">
         <p>password is <strong>required</strong></p>
+    </form-field-error>
+    <form-field-error *ngIf="form.get('password')?.hasError('incorrect_password') && form.get('username')?.dirty">
+        <p>Incorrect password</p>
     </form-field-error>
 
     <button type="submit" [disabled]="form.invalid">Login</button>

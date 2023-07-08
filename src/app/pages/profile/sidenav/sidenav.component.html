@@ -1,0 +1,28 @@
+<div class="element">
+    <div class="header">
+        <a routerLink="/">
+            <img src="assets/images/logo.png" alt="Logo">
+        </a>
+        <h1>My Transactions</h1>
+    </div>
+    <div class="user">
+        <img src="assets/images/user.svg" alt="User logo">
+        <p>Username</p>
+    </div>
+    <div class="menu">
+        <a routerLink="/profile/all-transactions" routerLinkActive="active">
+            <mat-icon>library_books</mat-icon>
+            <span>All Transactions</span>
+            <div class="line"></div>
+        </a>
+        <a routerLink="/profile/add-transaction" routerLinkActive="active">
+            <mat-icon>post_add</mat-icon>
+            <span>Add Transaction</span>
+            <div class="line"></div>
+        </a>
+    </div>
+    <div class="setting">
+        <p>{{mode === 1 ? 'Dark': 'Light'}} mode</p>
+        <setting-theme (click)="mode = colorModeService.colorMode"></setting-theme>
+    </div>
+</div>

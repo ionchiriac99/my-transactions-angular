@@ -1,0 +1,115 @@
+:host {
+    position: static;
+    top: 0;
+    left: 0;
+}
+
+.element {
+    position: static;
+    display: flex;
+    flex-direction: column;
+	width: 100vw;
+	max-width: 15rem;
+	height: 100vh;
+	background: linear-gradient(294deg, rgba(var(--contrast-rgb-color), 0.06) 0%, rgba(var(--base-rgb-color), 0) 100%), rgba(var(--base-rgb-color), 0.14);
+    box-shadow: -0.5rem 0.25rem 0.25rem 0p rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(1.5rem);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+    h1 {
+        position: absolute;
+        bottom: 0;
+        font-size: 1.25rem;
+        opacity: 0.2;
+    }
+
+    img {
+        width: 5rem;
+        aspect-ratio: 1;
+        transition: transform 300ms ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    p {
+        font-weight: 500;
+    }
+}
+
+.menu {
+    margin-top: 2rem;
+
+    mat-icon {
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    a {
+        position: relative;
+        font-size: 1.25rem;
+        color: var(--contrast-color);
+        transition: color 300ms ease;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &:hover {
+            color: #5500aa;
+        }
+
+        &.active {
+            color: #5500aa;
+            
+            .line {
+                opacity: 1;
+            }
+        }
+    }
+
+    .line {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #5500aa;
+        border-radius: 0.25rem;
+        width: 0.25rem;
+        height: 80%;
+        opacity: 0;
+        transition: opacity 300ms ease;
+    }
+}
+
+.setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: auto;
+    border-radius: 0.5rem;
+    transition: background-color 300ms ease;
+    background-color: rgba(var(--contrast-rgb-color), 0.2);
+}

@@ -2,14 +2,13 @@ import {NgModule} from '@angular/core';
 
 import {SigninComponent} from './signin.component';
 import {RouterModule, Routes} from '@angular/router';
-import {MatIconModule} from '@angular/material/icon';
 import {LoginFormComponent} from './components/login-form/login-form.component';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
-import {SettingThemeComponent} from 'src/app/shared/setting-theme/setting-theme.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {FormFieldErrorModule} from 'src/app/shared/form-field-error/form-field-error.module';
+import {FormFieldErrorModule} from '../../../app/shared/form-field-error/form-field-error.module';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {SettingThemeModule} from '../../../app/shared/setting-theme/setting-theme.module';
 
 const routes: Routes = [
 	{
@@ -35,10 +34,10 @@ const routes: Routes = [
 		HttpClientModule,
 		ReactiveFormsModule,
 		FormFieldErrorModule,
-		MatIconModule,
+		SettingThemeModule,
 	],
 	exports: [SigninComponent],
-	declarations: [SigninComponent, LoginFormComponent, RegisterFormComponent, SettingThemeComponent],
+	declarations: [SigninComponent, LoginFormComponent, RegisterFormComponent],
 	providers: [],
 })
 export class SigninModule {}

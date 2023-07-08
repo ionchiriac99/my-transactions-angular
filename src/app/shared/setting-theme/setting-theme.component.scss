@@ -1,0 +1,40 @@
+:host {
+	display: block;
+	padding: 0.25rem;
+	height: 2rem;
+	background-color: var(--base-color);
+	transition: background-color 300ms ease;
+	border-radius: 1rem;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	& > div {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+}
+
+mat-icon {
+	&.dark {
+		color: #0f0f0f;
+	}
+
+	&.light {
+		color: #fff;
+	}
+}
+
+.toggle {
+	position: absolute;
+	display: block;
+	height: 1.5rem;
+	width: 1.5rem;
+	border-radius: 50%;
+	background-color: var(--contrast-color);
+	transition: background-color 300ms ease, right 300ms ease;
+}

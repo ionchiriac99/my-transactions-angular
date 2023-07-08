@@ -1,0 +1,21 @@
+@mixin light-variables() {
+	--base-color: #fff;
+	--base-rgb-color: 255, 255, 255;
+	--contrast-color: #0f0f0f;
+	--contrast-rgb-color: 0, 0, 0;
+}
+
+@mixin dark-variables() {
+	--base-color: #0f0f0f;
+	--base-rgb-color: 0, 0, 0;
+	--contrast-color: #fff;
+	--contrast-rgb-color: 255, 255, 255;
+}
+
+body.light {
+	@include light-variables();
+}
+
+body.dark {
+	@include dark-variables();
+}

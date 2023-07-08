@@ -1,3 +1,6 @@
+@import 'material';
+@import 'themes';
+
 html,
 body {
 	height: 100%;
@@ -12,7 +15,7 @@ body {
 	letter-spacing: normal;
 	color: var(--contrast-color);
 	background-color: var(--base-color);
-	transition: color 300ms ease;
+	transition: color 300ms ease, background-color 300ms ease;
 }
 
 * {

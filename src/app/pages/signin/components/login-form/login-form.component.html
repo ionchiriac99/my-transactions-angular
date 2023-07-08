@@ -1,0 +1,44 @@
+<form [formGroup]="form">
+    <h1>Signup</h1>
+    <p>Glad you're back!</p>
+    <input type="text" formControlName="username" placeholder="Username">
+    <form-field-error *ngIf="form.get('username')?.hasError('minlength') && form.get('username')?.dirty">
+        <p>
+            The minimum length for username is
+            {{ form.get('username')?.getError('minlength')?.requiredLength }}
+            characters
+        </p>
+    </form-field-error>
+    <form-field-error *ngIf="form.get('username')?.hasError('maxlength') && form.get('username')?.dirty">
+        <p>
+            The maximum length for username is
+            {{ form.get('username')?.getError('maxlength')?.requiredLength }}
+            characters
+        </p>
+    </form-field-error>
+    <form-field-error *ngIf="form.get('username')?.hasError('required') && form.get('username')?.dirty">
+        <p>Username is <strong>required</strong></p>
+    </form-field-error>
+
+    <input type="password" formControlName="password" placeholder="Password">
+    <form-field-error *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.dirty">
+        <p>
+            The minimum length for password is
+            {{ form.get('password')?.getError('minlength')?.requiredLength }}
+            characters
+        </p>
+    </form-field-error>
+    <form-field-error *ngIf="form.get('password')?.hasError('maxlength') && form.get('password')?.dirty">
+        <p>
+            The maximum length for password is
+            {{ form.get('password')?.getError('maxlength')?.requiredLength }}
+            characters
+        </p>
+    </form-field-error>
+    <form-field-error *ngIf="form.get('password')?.hasError('required') && form.get('password')?.dirty">
+        <p>password is <strong>required</strong></p>
+    </form-field-error>
+
+    <button type="submit" [disabled]="form.invalid">Login</button>
+    <a routerLink="/signin/register">Don't have an account? <strong>Signin</strong></a>
+</form>

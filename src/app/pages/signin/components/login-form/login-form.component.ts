@@ -1,9 +1,9 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {variables} from 'src/app/core/consts';
 import {IToken} from 'src/app/core/interfaces/token';
 import {TokenService} from 'src/app/core/services/token.service';
-import {environment} from 'src/environments/environment.development';
 
 @Component({
 	selector: 'login-form',
@@ -31,7 +31,7 @@ export class LoginFormComponent implements OnInit {
 	}
 
 	public login(): void {
-		const API = environment.API;
+		const API = variables.API_SERVER;
 		this.form.disable();
 		const body = this.form.value;
 

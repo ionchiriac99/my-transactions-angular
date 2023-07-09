@@ -2,8 +2,8 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {variables} from 'src/app/core/consts';
 import {confirmPasswordValidator} from 'src/app/shared/validators/confirm-password.validator';
-import {environment} from 'src/environments/environment.development';
 
 @Component({
 	selector: 'register-form',
@@ -42,7 +42,7 @@ export class RegisterFormComponent implements OnInit {
 	}
 
 	public register(): void {
-		const API = environment.API;
+		const API = variables.API_SERVER;
 		this.form.disable();
 
 		const body = {
@@ -54,7 +54,6 @@ export class RegisterFormComponent implements OnInit {
 			next: () => this.router.navigateByUrl('/signin'),
 			error: (error: HttpErrorResponse) => {
 				this.form.enable();
-				console.log('err: ', error);
 				if (error.status === 400) {
 					this.form.get('username').setErrors({
 						already_exists: true,

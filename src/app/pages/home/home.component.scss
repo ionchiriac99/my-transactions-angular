@@ -1,0 +1,146 @@
+.container {
+    position: relative;
+}
+
+h1 {
+    padding-top: 4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 4rem;
+
+    @media screen and (max-width: 768px) {
+        font-size: 3rem;
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 2rem;
+    }
+}
+
+.sources {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    @media screen and (max-width: 576px) {
+        flex-direction: column-reverse;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
+}
+
+.description {
+    text-align: center;
+    font-size: 1.5rem;
+
+    @media screen and (max-width: 576px) {
+        font-size: 1rem;
+    }
+}
+
+img {
+    width: 18rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    
+    @media screen and (max-width: 768px) {
+        width: 12rem;
+    }
+}
+
+.author {
+    & > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        text-decoration: none;
+        margin: 1rem 0;
+        color: #5209e0;
+        transition: color 300ms ease;
+        font-size: 1.25rem;
+
+        &:hover {
+            cursor: pointer;
+            color: #3e02b8;
+        }
+
+    }
+}
+
+svg {
+	width: 3rem;
+	height: 3rem;
+	color: var(--contrast-color);
+	transition: color 300ms ease;
+
+    @media screen and (max-width: 768px) {
+        width: 2rem;
+	    height: 2rem;
+    }
+}
+
+.btns {
+    padding-top: 1rem;
+
+    @media screen and (max-width: 768px) {
+       display: flex;
+       justify-content: center;
+    }
+
+    & > a {
+        text-decoration: none;
+        border-radius: 1.5rem;
+        font-weight: 500;
+        color: #168fb0;
+        padding: 1rem 2rem;
+        margin: 0 0.5rem;
+        background-color: rgba(var(--contrast-rgb-color), 0.1);
+        transition: background-color 300ms ease;
+
+        &:hover {
+            background-color: rgba(var(--contrast-rgb-color), 0.2);
+        }
+    }
+}
+
+.circle-1 {
+    position: absolute;
+    opacity: 0.2;
+    top: 2rem;
+    left: 1rem;
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #530061 0%, var(--base-color) 100%);
+}
+
+.circle-2 {
+    position: absolute;
+    opacity: 0.5;
+    bottom: 3rem;
+    left: 30%;
+    width: 9.375rem;
+    height: 9.375rem;
+    transform: rotate(-28.5deg);
+    border-radius: 50%;
+    background: linear-gradient(180deg, #300061 0%, var(--base-color) 100%);
+}
+
+setting-theme {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    background-color: #168fb0;
+
+    @media screen and (max-width: 768px) {
+        right: 1rem;
+    }
+}

@@ -1,2 +1,9 @@
-<sidenav></sidenav>
-<router-outlet></router-outlet>
+<sidebar #sidebar>
+    <sidenav></sidenav>
+</sidebar>
+<div class="container">
+    <button *ngIf="width <= 768" (click)="sidebar.show()">
+        <span class="material-icons">menu_open</span>
+    </button>
+    <router-outlet></router-outlet>
+</div>

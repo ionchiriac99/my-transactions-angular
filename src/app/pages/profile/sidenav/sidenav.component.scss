@@ -11,7 +11,7 @@
 	width: 100vw;
 	max-width: 15rem;
 	height: 100vh;
-	background: linear-gradient(294deg, rgba(var(--contrast-rgb-color), 0.06) 0%, rgba(var(--base-rgb-color), 0) 100%), rgba(var(--base-rgb-color), 0.14);
+    background-color: slategrey;
     box-shadow: -0.5rem 0.25rem 0.25rem 0p rgba(0, 0, 0, 0.24);
     backdrop-filter: blur(1.5rem);
 }
@@ -26,7 +26,6 @@
         position: absolute;
         bottom: 0;
         font-size: 1.25rem;
-        opacity: 0.2;
     }
 
     img {

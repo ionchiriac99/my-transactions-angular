@@ -6,6 +6,8 @@ import {SidenavComponent} from './sidenav/sidenav.component';
 import {SettingThemeModule} from '../../../app/shared/setting-theme/setting-theme.module';
 import {AllTransactionsComponent} from './all-transactions/all-transactions.component';
 import {AddTransactionComponent} from './add-transaction/add-transaction.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import {CommonModule} from '@angular/common';
 
 const routes: Routes = [
 	{
@@ -30,8 +32,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes), SettingThemeModule],
-	declarations: [ProfileComponent, SidenavComponent, AllTransactionsComponent, AddTransactionComponent],
+	imports: [RouterModule.forChild(routes), CommonModule, SettingThemeModule],
+	declarations: [
+		ProfileComponent,
+		SidenavComponent,
+		AllTransactionsComponent,
+		AddTransactionComponent,
+		SidebarComponent,
+	],
 	exports: [ProfileComponent],
 })
 export class ProfileModule {}

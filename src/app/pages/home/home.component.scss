@@ -21,6 +21,10 @@ h1 {
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
+
+    @media screen and (max-width: 576px) {
+        margin-bottom: 0;
+    }
 }
 
 .content {
@@ -88,8 +92,6 @@ svg {
 }
 
 .btns {
-    padding-top: 1rem;
-
     @media screen and (max-width: 768px) {
        display: flex;
        justify-content: center;

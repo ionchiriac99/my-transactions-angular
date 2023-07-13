@@ -1,0 +1,47 @@
+:host {
+    &.available {
+        position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+
+        .element {
+            transform: translateX(-100%);
+            transition: transform 300ms ease;
+            width: 100vw;
+            max-width: 15rem;
+            height: 100vh;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(var(--contrast-rgb-color), 1);
+            opacity: 0;
+            transition: opacity 300ms ease;
+        }
+    }
+
+    &.active {
+        z-index: 5;
+        opacity: 1;
+
+
+        .background {
+            opacity: 0.5;
+        }
+
+        .element {
+            position: absolute;
+            z-index: 501;
+        }
+    }
+
+}

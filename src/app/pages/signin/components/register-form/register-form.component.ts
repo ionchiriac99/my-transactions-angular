@@ -8,7 +8,7 @@ import {confirmPasswordValidator} from 'src/app/shared/validators/confirm-passwo
 @Component({
 	selector: 'register-form',
 	templateUrl: './register-form.component.html',
-	styleUrls: ['././register-form.component.scss'],
+	styleUrls: ['./../../../../../assets/scss/form.scss'],
 })
 export class RegisterFormComponent implements OnInit {
 	public form: FormGroup;
@@ -25,12 +25,7 @@ export class RegisterFormComponent implements OnInit {
 			Validators.maxLength(256),
 		]);
 		this.form = new FormGroup({
-			username: new FormControl('', [
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(256),
-				Validators.pattern(/^([0-9a-zA-Z\-_])+$/),
-			]),
+			username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]),
 			password: passwordControl,
 			confirm_password: new FormControl('', [
 				Validators.required,

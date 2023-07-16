@@ -1,6 +1,7 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {variables} from 'src/app/core/consts';
 import {IToken} from 'src/app/core/interfaces/token';
 import {TokenService} from 'src/app/core/services/token.service';
@@ -8,7 +9,7 @@ import {TokenService} from 'src/app/core/services/token.service';
 @Component({
 	selector: 'login-form',
 	templateUrl: './login-form.component.html',
-	styleUrls: ['././login-form.component.scss'],
+	styleUrls: ['./../../../../../assets/scss/form.scss'],
 })
 export class LoginFormComponent implements OnInit {
 	public form: FormGroup;
@@ -16,6 +17,7 @@ export class LoginFormComponent implements OnInit {
 	constructor(
 		private readonly httpClient: HttpClient,
 		private readonly tokenService: TokenService,
+		private readonly router: Router,
 	) {}
 
 	public ngOnInit(): void {
@@ -38,8 +40,7 @@ export class LoginFormComponent implements OnInit {
 		this.httpClient.post<IToken>(`${API}/api/auth/signin`, body).subscribe({
 			next: (data: IToken) => {
 				this.tokenService.store(data.jwt, data.exp);
-				// TODO refirect to profile page
-				console.log('redirect to profile');
+				this.router.navigateByUrl('/profile');
 			},
 			error: (error: HttpErrorResponse) => {
 				this.form.enable();

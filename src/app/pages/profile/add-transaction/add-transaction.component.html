@@ -1,1 +1,25 @@
-#add transaction
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <fieldset>
+        <legend>Add transaction</legend>
+
+        <label>Enter Text</label>
+        <input type="text" formControlName="text" placeholder="text">
+
+        <label>Enter value</label>
+        <input type="number" formControlName="value" min="0">
+
+        <label>Select type</label>
+        <div class="type">
+            <span class="expense" (click)="type = TransactionType.EXPENSE"
+                [class.active]="type === TransactionType.EXPENSE">expense</span>
+            <span class="encashment" (click)="type = TransactionType.ENCASHMENT"
+                [class.active]="type === TransactionType.ENCASHMENT">encashment</span>
+        </div>
+
+        <label>Select date</label>
+        <input type="datetime-local" formControlName="createdAt" placeholder="createdAd" #date
+            (click)="date.showPicker()">
+
+        <button type="submit" [disabled]="form.invalid">Add</button>
+    </fieldset>
+</form>

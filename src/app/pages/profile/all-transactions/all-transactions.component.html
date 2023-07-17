@@ -1,1 +1,20 @@
-#all transactions
+<h1>All transactions</h1>
+<h2>Balance: {{getBalance()}}$</h2>
+<div class="transactions">
+    <div *ngFor="let transaction of accountService.transactions">
+        <div>
+            <p>{{transaction.text}}</p>
+            <div>
+                <strong [ngClass]="{red: transaction.type === 'expense', green: transaction.type === 'encashment'}">
+                    {{display(transaction.type, transaction.value)}}$
+                </strong>
+            </div>
+        </div>
+        <div>
+            <span>{{transaction.createdAt | date}}</span>
+            <span class="material-icons">
+                delete_forever
+            </span>
+        </div>
+    </div>
+</div>

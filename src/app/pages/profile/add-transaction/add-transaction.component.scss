@@ -1,5 +1,6 @@
 :host {
     height: 100%;
+    margin: 0 auto;
 }
 
 form {
@@ -11,6 +12,7 @@ form {
 fieldset {
     margin: auto;
     padding: 2rem;
+    border-radius: 0.5rem;
 
     @media screen and (max-width: 576px) {
         padding: 1rem;

@@ -3,7 +3,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {variables} from 'src/app/core/consts';
+import {variables} from './../../../../app/core/consts';
 
 export enum TransactionType {
 	EXPENSE,
@@ -18,7 +18,7 @@ export class AddTransactionComponent implements OnInit, OnDestroy {
 	public TransactionType = TransactionType;
 	public type = TransactionType.EXPENSE;
 	public form: FormGroup;
-	private subscription: Subscription[] = [];
+	private subscriptions: Subscription[] = [];
 
 	constructor(
 		private httpClient: HttpClient,
@@ -39,10 +39,12 @@ export class AddTransactionComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnDestroy(): void {
-		this.subscription.forEach((s) => s.unsubscribe());
+		this.subscriptions.forEach((s) => s.unsubscribe());
 	}
 
 	public submit(): void {
+		this.form.disable();
+
 		let obj;
 		if (this.type === TransactionType.ENCASHMENT) {
 			obj = {
@@ -62,8 +64,11 @@ export class AddTransactionComponent implements OnInit, OnDestroy {
 				console.log('succcesc add');
 				this.router.navigateByUrl('/profile/all-transactions');
 			},
-			error: (err) => console.log('err: ', err),
+			error: (err) => {
+				this.form.enable();
+				console.log('err: ', err);
+			},
 		});
-		this.subscription.push(sub);
+		this.subscriptions.push(sub);
 	}
 }

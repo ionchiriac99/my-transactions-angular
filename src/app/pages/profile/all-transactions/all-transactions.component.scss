@@ -1,0 +1,74 @@
+:host {
+    max-width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 0;;
+    }
+}
+
+h2 {
+    margin: 2rem 0;
+    text-align: end;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 1rem;
+    }
+}
+
+.transactions {
+    & > div {
+        margin: 0.5rem 0;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        background-color: rgba(var(--contrast-rgb-color), 0.2);
+        transition: background-color 300ms ease;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(var(--contrast-rgb-color), 0.3);
+        }
+
+        & > div {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.25rem;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        p, strong {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+
+        strong {
+            &.red {
+                color: red;
+            }
+
+            &.green {
+                color: green;
+            }
+        }
+    }
+}
+
+.material-icons {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: red;
+    background-color: rgba(var(--contrast-rgb-color), 0.2);
+    transition: color 300ms ease, background-color 300ms ease;
+
+    &:hover {
+        background-color: rgba(var(--contrast-rgb-color), 0.4);
+    }
+}

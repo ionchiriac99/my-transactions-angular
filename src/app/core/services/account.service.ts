@@ -3,11 +3,13 @@ import {Injectable} from '@angular/core';
 import {IAccount} from '../interfaces/account';
 import {TokenEvents, TokenService} from './token.service';
 import {variables} from '../consts';
+import {ITransaction} from '../interfaces/transaction';
 
 @Injectable({providedIn: 'root'})
 export class AccountService {
 	public username: string;
 	public logged: boolean = false;
+	public transactions: ITransaction[] = [];
 
 	constructor(
 		private tokenService: TokenService,

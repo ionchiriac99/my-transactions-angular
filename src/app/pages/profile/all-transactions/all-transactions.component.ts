@@ -37,7 +37,7 @@ export class AllTransactionsComponent implements OnInit, OnDestroy {
 
 	public getBalance(): number {
 		const balance = this.accountService.transactions.reduce(
-			(acc, el) => (el.type === 'expense' ? (acc += el.value) : (acc -= el.value)),
+			(acc, el) => (el.type === 'expense' ? (acc -= el.value) : (acc += el.value)),
 			0,
 		);
 

@@ -2,8 +2,8 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {variables} from 'src/app/core/consts';
-import {confirmPasswordValidator} from 'src/app/shared/validators/confirm-password.validator';
+import {variables} from './../../../../../app/core/consts';
+import {confirmPasswordValidator} from './../../../../../app/shared/validators/confirm-password.validator';
 
 @Component({
 	selector: 'register-form',

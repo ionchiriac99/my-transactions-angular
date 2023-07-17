@@ -2,9 +2,9 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {variables} from 'src/app/core/consts';
-import {IToken} from 'src/app/core/interfaces/token';
-import {TokenService} from 'src/app/core/services/token.service';
+import {variables} from './../../../../../app/core/consts';
+import {IToken} from './../../../../../app/core/interfaces/token';
+import {TokenService} from './../../../../../app/core/services/token.service';
 
 @Component({
 	selector: 'login-form',

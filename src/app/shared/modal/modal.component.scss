@@ -1,0 +1,35 @@
+:host {
+	position: fixed;
+	z-index: 1200;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	backdrop-filter: blur(0.25rem);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 300ms ease;
+
+    &.active {
+        opacity: 1;
+		pointer-events: inherit;
+
+		.box {
+			transition: transform 300ms ease;
+			transform: scale(1);
+		}
+    }
+}
+
+.box {
+    margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	transform: scale(0.8);
+	transition: transform 300ms ease;
+	width: 100%;
+	max-width: 40rem;
+}

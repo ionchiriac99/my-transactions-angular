@@ -12,9 +12,17 @@
         </div>
         <div>
             <span>{{transaction.createdAt | date}}</span>
-            <span class="material-icons">
+            <span class="material-icons" (click)="selectedId = transaction._id; m.open()">
                 delete_forever
             </span>
         </div>
     </div>
 </div>
+<modal #m>
+    <modal-header>Confirm Delete</modal-header>
+    <modal-body>Are you sure to delete this transaction?</modal-body>
+    <modal-footer>
+        <button (click)="m.close()" class="cancel">Cancel</button>
+        <button (click)="delete(); m.close()" class="delete">Delete</button>
+    </modal-footer>
+</modal>

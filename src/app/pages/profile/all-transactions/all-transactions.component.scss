@@ -72,3 +72,26 @@ h2 {
         background-color: rgba(var(--contrast-rgb-color), 0.4);
     }
 }
+
+modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+    
+    &.delete {
+        background-color: red;
+    }
+
+    &.cancel {
+        background-color: #7fffd4;
+    }
+}

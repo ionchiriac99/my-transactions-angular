@@ -9,6 +9,7 @@ import {AddTransactionComponent} from './add-transaction/add-transaction.compone
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ModalModule} from './../../../app/shared/modal/modal.module';
 
 const routes: Routes = [
 	{
@@ -33,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes), CommonModule, SettingThemeModule, ReactiveFormsModule],
+	imports: [RouterModule.forChild(routes), CommonModule, SettingThemeModule, ReactiveFormsModule, ModalModule],
 	declarations: [
 		ProfileComponent,
 		SidenavComponent,

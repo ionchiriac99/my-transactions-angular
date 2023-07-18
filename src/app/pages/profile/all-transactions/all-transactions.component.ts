@@ -13,6 +13,8 @@ export class AllTransactionsComponent implements OnInit, OnDestroy {
 	private subscriptions: Subscription[] = [];
 	private API_SERVER: string = variables.API_SERVER;
 
+	public selectedId: string;
+
 	constructor(
 		public accountService: AccountService,
 		private readonly httpClient: HttpClient,
@@ -42,5 +44,22 @@ export class AllTransactionsComponent implements OnInit, OnDestroy {
 		);
 
 		return Number(balance.toFixed(2));
+	}
+
+	public delete(): void {
+		if (this.selectedId) {
+			const sub = this.httpClient
+				.delete<null>(`${this.API_SERVER}/api/transaction/${this.selectedId}`)
+				.subscribe({
+					next: () => {
+						console.log('deleted successfully');
+						this.accountService.transactions = this.accountService.transactions.filter(
+							(el) => el._id !== this.selectedId,
+						);
+					},
+					error: () => console.log('Something wrong!'),
+				});
+			this.subscriptions.push(sub);
+		}
 	}
 }

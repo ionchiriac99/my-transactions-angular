@@ -4,7 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {variables} from './../../../../../app/core/consts';
 import {confirmPasswordValidator} from './../../../../../app/shared/validators/confirm-password.validator';
-import {SnackbarRef} from './../../../../../app/shared/snackbar.component';
+import {SnackbarRef} from './../../../../shared/snackbar/snackbar.component';
 
 @Component({
 	selector: 'register-form',

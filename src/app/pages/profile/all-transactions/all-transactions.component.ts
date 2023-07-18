@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs';
 import {variables} from './../../../../app/core/consts';
 import {ITransaction} from './../../../../app/core/interfaces/transaction';
 import {AccountService} from './../../../../app/core/services/account.service';
-import {SnackbarRef} from './../../../../app/shared/snackbar.component';
+import {SnackbarRef} from './../../../shared/snackbar/snackbar.component';
 
 @Component({
 	templateUrl: './all-transactions.component.html',

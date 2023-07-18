@@ -61,3 +61,71 @@ button {
         opacity: 0.5;
     }
 }
+
+fieldset {
+    margin: auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    @media screen and (max-width: 576px) {
+        padding: 1rem;
+    }
+}
+
+legend {
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+
+    @media screen and (max-width: 576px) {
+        font-size: 1.5rem;
+    }
+}
+
+.type {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    
+    span {
+        cursor: pointer;
+        border-radius: 0.5rem;
+        border: 0.25rem solid transparent;
+        padding: 0.5rem;
+        transition: border-color 300ms ease;
+
+        &.encashment {
+            background: green;
+        }
+
+        &.expense {
+            background: red;
+        }
+
+        &.active {
+            border-color: var(--contrast-color);
+        }
+    }
+}
+
+input[type=datetime-local]{
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}

@@ -10,6 +10,7 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ModalModule} from './../../../app/shared/modal/modal.module';
+import {UpdateTransactionComponent} from './update-transaction/update-transaction.coomponent';
 
 const routes: Routes = [
 	{
@@ -29,6 +30,10 @@ const routes: Routes = [
 				path: 'add-transaction',
 				component: AddTransactionComponent,
 			},
+			{
+				path: 'transaction/:id',
+				component: UpdateTransactionComponent,
+			},
 		],
 	},
 ];
@@ -40,6 +45,7 @@ const routes: Routes = [
 		SidenavComponent,
 		AllTransactionsComponent,
 		AddTransactionComponent,
+		UpdateTransactionComponent,
 		SidebarComponent,
 	],
 	exports: [ProfileComponent],

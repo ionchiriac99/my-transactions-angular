@@ -12,9 +12,12 @@
         </div>
         <div>
             <span>{{transaction.createdAt | date}}</span>
-            <span class="material-icons" (click)="selectedId = transaction._id; m.open()">
-                delete_forever
-            </span>
+            <div class="methods">
+                <a class="material-icons" [routerLink]="'/profile/transaction/' + transaction._id">autorenew</a>
+                <span class="material-icons" (click)="selectedId = transaction._id; m.open()">
+                    delete_forever
+                </span>
+            </div>
         </div>
     </div>
 </div>

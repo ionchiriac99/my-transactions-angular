@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {variables} from './../../../../../app/core/consts';
 import {IToken} from './../../../../../app/core/interfaces/token';
 import {TokenService} from './../../../../../app/core/services/token.service';
-import {SnackbarRef} from './../../../../../app/shared/snackbar.component';
+import {SnackbarRef} from './../../../../shared/snackbar/snackbar.component';
 
 @Component({
 	selector: 'login-form',

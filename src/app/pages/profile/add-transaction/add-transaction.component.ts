@@ -4,7 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {variables} from './../../../../app/core/consts';
-import {SnackbarRef} from './../../../../app/shared/snackbar.component';
+import {SnackbarRef} from './../../../shared/snackbar/snackbar.component';
 
 export enum TransactionType {
 	EXPENSE,
@@ -30,7 +30,7 @@ export class AddTransactionComponent implements OnInit, OnDestroy {
 	public ngOnInit(): void {
 		this.form = new FormGroup({
 			text: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]),
-			value: new FormControl(1, [Validators.required, Validators.min(0.1)]),
+			value: new FormControl(null, [Validators.required, Validators.min(0.1)]),
 			createdAt: new FormControl('', [Validators.required]),
 		});
 	}

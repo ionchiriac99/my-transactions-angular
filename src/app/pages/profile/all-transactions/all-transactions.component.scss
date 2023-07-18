@@ -73,6 +73,16 @@ h2 {
     }
 }
 
+a {
+    text-decoration: none;
+    color: #adff2f !important;
+}
+
+.methods {
+    display: flex;
+    gap: 0.5rem;
+}
+
 modal-footer {
     display: flex;
     justify-content: flex-end;

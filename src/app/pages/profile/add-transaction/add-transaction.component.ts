@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {variables} from './../../../../app/core/consts';
+import {SnackbarRef} from './../../../../app/shared/snackbar.component';
 
 export enum TransactionType {
 	EXPENSE,
@@ -21,18 +22,14 @@ export class AddTransactionComponent implements OnInit, OnDestroy {
 	private subscriptions: Subscription[] = [];
 
 	constructor(
-		private httpClient: HttpClient,
+		private readonly httpClient: HttpClient,
 		private readonly router: Router,
+		private readonly snackbar: SnackbarRef,
 	) {}
 
 	public ngOnInit(): void {
 		this.form = new FormGroup({
-			text: new FormControl('', [
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(256),
-				Validators.pattern(new RegExp(/^([0-9a-zA-Z\-_])+$/)),
-			]),
+			text: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]),
 			value: new FormControl(1, [Validators.required, Validators.min(0.1)]),
 			createdAt: new FormControl('', [Validators.required]),
 		});
@@ -61,12 +58,20 @@ export class AddTransactionComponent implements OnInit, OnDestroy {
 
 		const sub: Subscription = this.httpClient.post<null>(`${API_SERVER}/api/transaction`, body).subscribe({
 			next: () => {
-				console.log('succcesc add');
+				this.snackbar.open({
+					panelClass: 'succes',
+					data: {message: 'You have successfully added the transaction.'},
+					duration: 3000,
+				});
 				this.router.navigateByUrl('/profile/all-transactions');
 			},
-			error: (err) => {
+			error: () => {
 				this.form.enable();
-				console.log('err: ', err);
+				this.snackbar.open({
+					panelClass: 'error',
+					data: {message: 'Something wrong!'},
+					duration: 3000,
+				});
 			},
 		});
 		this.subscriptions.push(sub);

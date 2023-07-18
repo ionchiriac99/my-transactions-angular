@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {variables} from './../../../../../app/core/consts';
 import {confirmPasswordValidator} from './../../../../../app/shared/validators/confirm-password.validator';
+import {SnackbarRef} from './../../../../../app/shared/snackbar.component';
 
 @Component({
 	selector: 'register-form',
@@ -16,6 +17,7 @@ export class RegisterFormComponent implements OnInit {
 	constructor(
 		private readonly httpClient: HttpClient,
 		private readonly router: Router,
+		private readonly snackbar: SnackbarRef,
 	) {}
 
 	public ngOnInit(): void {
@@ -46,12 +48,25 @@ export class RegisterFormComponent implements OnInit {
 		};
 
 		this.httpClient.post<null>(`${API}/api/auth/signup`, body).subscribe({
-			next: () => this.router.navigateByUrl('/signin'),
+			next: () => {
+				this.router.navigateByUrl('/signin');
+				this.snackbar.open({
+					panelClass: 'succes',
+					data: {message: 'You have successfully registered.'},
+					duration: 3000,
+				});
+			},
 			error: (error: HttpErrorResponse) => {
 				this.form.enable();
 				if (error.status === 400) {
 					this.form.get('username').setErrors({
 						already_exists: true,
+					});
+				} else {
+					this.snackbar.open({
+						panelClass: 'error',
+						data: {message: 'Something wrong!'},
+						duration: 3000,
 					});
 				}
 			},

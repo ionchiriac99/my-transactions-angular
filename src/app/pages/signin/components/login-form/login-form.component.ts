@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {variables} from './../../../../../app/core/consts';
 import {IToken} from './../../../../../app/core/interfaces/token';
 import {TokenService} from './../../../../../app/core/services/token.service';
+import {SnackbarRef} from './../../../../../app/shared/snackbar.component';
 
 @Component({
 	selector: 'login-form',
@@ -18,6 +19,7 @@ export class LoginFormComponent implements OnInit {
 		private readonly httpClient: HttpClient,
 		private readonly tokenService: TokenService,
 		private readonly router: Router,
+		private readonly snackbar: SnackbarRef,
 	) {}
 
 	public ngOnInit(): void {
@@ -41,6 +43,11 @@ export class LoginFormComponent implements OnInit {
 			next: (data: IToken) => {
 				this.tokenService.store(data.jwt, data.exp);
 				this.router.navigateByUrl('/profile');
+				this.snackbar.open({
+					panelClass: 'succes',
+					data: {message: 'You have successfully logged in.'},
+					duration: 3000,
+				});
 			},
 			error: (error: HttpErrorResponse) => {
 				this.form.enable();
@@ -54,6 +61,12 @@ export class LoginFormComponent implements OnInit {
 							incorrect_password: true,
 						});
 					}
+				} else {
+					this.snackbar.open({
+						panelClass: 'error',
+						data: {message: 'Something wrong!'},
+						duration: 3000,
+					});
 				}
 			},
 		});

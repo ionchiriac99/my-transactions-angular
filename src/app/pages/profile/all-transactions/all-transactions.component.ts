@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {variables} from './../../../../app/core/consts';
 import {ITransaction} from './../../../../app/core/interfaces/transaction';
 import {AccountService} from './../../../../app/core/services/account.service';
+import {SnackbarRef} from './../../../../app/shared/snackbar.component';
 
 @Component({
 	templateUrl: './all-transactions.component.html',
@@ -18,6 +19,7 @@ export class AllTransactionsComponent implements OnInit, OnDestroy {
 	constructor(
 		public accountService: AccountService,
 		private readonly httpClient: HttpClient,
+		private readonly snackbar: SnackbarRef,
 	) {}
 
 	public ngOnInit(): void {
@@ -52,12 +54,22 @@ export class AllTransactionsComponent implements OnInit, OnDestroy {
 				.delete<null>(`${this.API_SERVER}/api/transaction/${this.selectedId}`)
 				.subscribe({
 					next: () => {
-						console.log('deleted successfully');
+						this.snackbar.open({
+							panelClass: 'succes',
+							data: {message: 'You have successfully deleted the transaction.'},
+							duration: 3000,
+						});
 						this.accountService.transactions = this.accountService.transactions.filter(
 							(el) => el._id !== this.selectedId,
 						);
 					},
-					error: () => console.log('Something wrong!'),
+					error: () => {
+						this.snackbar.open({
+							panelClass: 'error',
+							data: {message: 'Something wrong!'},
+							duration: 3000,
+						});
+					},
 				});
 			this.subscriptions.push(sub);
 		}

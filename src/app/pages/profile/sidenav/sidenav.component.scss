@@ -50,6 +50,22 @@
         font-weight: 600;
         font-size: 1.25rem;
     }
+
+    & > div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    span {
+        cursor: pointer;
+        transition: color 300ms ease;
+        font-size: 2rem;
+
+        &:hover {
+            color: #5500aa;
+        }
+    }
 }
 
 .menu {
@@ -110,4 +126,28 @@
     border-radius: 0.5rem;
     transition: background-color 300ms ease;
     background-color: rgba(var(--contrast-rgb-color), 0.2);
+}
+
+modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+    
+    &.logout {
+        background-color: red;
+    }
+
+    &.cancel {
+        background-color: #7fffd4;
+    }
 }

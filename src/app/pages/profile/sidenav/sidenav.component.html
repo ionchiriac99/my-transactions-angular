@@ -7,7 +7,10 @@
     </div>
     <div class="user">
         <img src="assets/images/user.svg" alt="User logo">
-        <p>{{username()}}</p>
+        <div>
+            <p>{{username()}}</p>
+            <span class="material-icons" (click)="m.open()">exit_to_app</span>
+        </div>
     </div>
     <div class="menu">
         <a routerLink="/profile/all-transactions" routerLinkActive="active">
@@ -26,3 +29,11 @@
         <setting-theme (click)="mode = colorModeService.colorMode"></setting-theme>
     </div>
 </div>
+<modal #m>
+    <modal-header>Confirm Logout</modal-header>
+    <modal-body>Are you sure you want to logout?</modal-body>
+    <modal-footer>
+        <button (click)="m.close()" class="cancel">Cancel</button>
+        <button (click)="logout(); m.close()" class="logout">Logout</button>
+    </modal-footer>
+</modal>

@@ -11,11 +11,13 @@ import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ModalModule} from './../../../app/shared/modal/modal.module';
 import {UpdateTransactionComponent} from './update-transaction/update-transaction.coomponent';
+import {AuthGuard} from './../../../app/core/guards/auth.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: ProfileComponent,
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: '',

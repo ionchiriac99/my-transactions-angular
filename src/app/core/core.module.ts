@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {RoutingModule} from './routing.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptor} from './interceptors/token.interceptor';
+import {UnauthorizedInterceptor} from './interceptors/unauthorized.interceptor';
 
 @NgModule({
 	imports: [CommonModule, RoutingModule],
@@ -11,6 +12,11 @@ import {TokenInterceptor} from './interceptors/token.interceptor';
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: TokenInterceptor,
+			multi: true,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: UnauthorizedInterceptor,
 			multi: true,
 		},
 	],

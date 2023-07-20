@@ -9,11 +9,13 @@ import {FormFieldErrorModule} from '../../../app/shared/form-field-error/form-fi
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {SettingThemeModule} from '../../../app/shared/setting-theme/setting-theme.module';
+import {GuestGuard} from './../../../app/core/guards/guest.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: SigninComponent,
+		canActivate: [GuestGuard],
 		children: [
 			{
 				path: '',

@@ -11,7 +11,6 @@ class AuthPermissionsService {
 	) {}
 
 	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
-		console.log(this.accountService.accountData$ == undefined);
 		if (this.accountService.accountData$ == undefined) {
 			if (this.accountService.logged) {
 				return true;

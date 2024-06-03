@@ -1,3 +1,3 @@
 export const variables = {
-	API_SERVER: 'https://agreeable-slug-suit.cyclic.app/',
+	API_SERVER: 'https://my-transactions-nestjs.onrender.com',
 };
